@@ -4,3 +4,7 @@
 *.log
 *.vscode
 *.DS_Store
+*instance/
+*.pytest_cache/
+*.coverage
+*htmlcov/

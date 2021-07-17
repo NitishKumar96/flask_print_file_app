@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+}
+
+.error {
+  /* width: 80%;
+  padding: 40px; */
+  text-align: center;
+}
+
+.error h1 {
+  font-size: 125px;
+  padding: 0;
+  margin: 10% 0% 2% 0%;
+  font-weight: 700;
+}
+
+.error h2 {
+  /* margin: -4% 0 0 0; */
+  padding: 0px;
+  font-size: 47px;
+  letter-spacing: 2px;
+}

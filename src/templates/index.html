@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>File Printer</title>
+
+<script type="text/javascript">
+
+    function redirect() {
+        var show_markup = document.getElementById("show_markup").checked;
+        var file_name = document.getElementById("file_name").value;
+        var start_line = document.getElementById("start_line").value;
+        var end_line = document.getElementById("end_line").value;
+        var url = "/print_page/" + file_name + "?start_line=" + start_line + "&end_line=" + end_line + "&show_markup=" + show_markup;
+
+        window.location.replace(url)
+    }
+</script>
+
+{% endblock %}
+
+{% block body %}
+
+<div>
+    <form style="margin: 4%;">
+
+        Reading File
+        <input value="{{old_data['file_name'] or '--'}}" id="file_name" required>
+        from line
+        <input value="{{old_data['start_line'] or 0}}" type="number" id="start_line" style="width: 10%;"
+            placeholder="start line">
+        to
+        <input value="{{old_data['end_line'] or "" }}" type="number" id="end_line" style="width: 10%;"
+            placeholder="end line">
+        and show markup
+        <input type="checkbox" id="show_markup" name="show_markup" value="show_markup" {% if show_markup==True %}
+            checked {%endif%}>
+        <input type="button" style="margin-left:2%;" onclick="redirect()" value="Reload" />
+
+    </form>
+
+</div>
+<hr>
+
+<div style="margin:2%;">
+
+
+
+    {% if error :%}
+    <div class="error">
+        <h1>{{error["code"]}}</h1>
+        <h2>{{error["type"]}}</h2>
+        <p>{{error["message"]}}</p>
+    </div>
+    {% else %}
+
+    {% for line in file_lines:%}
+
+    {% if show_markup == True %}
+    <p>{{line}}</p>
+    {% else :%}
+    {{line|safe}} <br>
+    {%endif%}
+
+    {% endfor %}
+
+    {% endif %}
+</div>
+
+
+{% endblock %}

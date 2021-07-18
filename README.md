@@ -24,6 +24,7 @@ pip install -r REQUIREMENTS.txt
 ```sh
 python3 src/main.py
 ```
+then go to localhost:5000 to use application
 
 - src/config/constants.py
   It is the global constants file and following things can be changed:

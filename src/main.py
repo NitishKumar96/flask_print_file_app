@@ -38,4 +38,4 @@ def index(file_name="file1.txt"):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=DefaultValues.DEFAULT_RUN_DEBUG, port=DefaultValues.DEFAULT_PORT)

@@ -4,6 +4,8 @@
 class DefaultValues:
     """Deafult values for the api"""
 
+    DEFAULT_RUN_DEBUG = True
+    DEFAULT_PORT = 5000
     DEFAULT_FILE_NAME = "file1.txt"
     DEFAULT_RENDER_FOLDER = "render_files"
     DEFAULT_START_LINE = 0
